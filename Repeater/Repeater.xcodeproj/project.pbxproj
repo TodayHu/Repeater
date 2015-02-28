@@ -6,10 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		9DFECB391AA213B3008C8D10 /* Repeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeater.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		9DFECB321AA2139D008C8D10 = {
 			isa = PBXGroup;
 			children = (
+				9DFECB391AA213B3008C8D10 /* Repeater.swift */,
 			);
 			sourceTree = "<group>";
 		};
