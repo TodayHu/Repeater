@@ -20,7 +20,7 @@ public class Repeater {
     }
     
     
-    init() {
+    public init() {
     }
     
     public convenience init(timeoutMs: Int, accuracyMs: Int) {
