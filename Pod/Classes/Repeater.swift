@@ -23,37 +23,37 @@ public class Repeater {
     init() {
     }
     
-    convenience init(timeoutMs: Int, accuracyMs: Int) {
+    public convenience init(timeoutMs: Int, accuracyMs: Int) {
         self.init()
         repeatTimeoutMilliseconds = timeoutMs
         repeatAccuracyMilliseconds = accuracyMs
     }
     
     
-    func repeat(repeat: (()->())) {
+    public func repeat(repeat: (()->())) {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         repeatInQueue(queue, repeat: repeat)
     }
     
     
-    func repeatInQueue(queue: dispatch_queue_t, repeat: (() -> ())) {
+    public func repeatInQueue(queue: dispatch_queue_t, repeat: (() -> ())) {
         repeatInQueue(queue, timeoutMs: repeatTimeoutMilliseconds, accuracyMs: repeatAccuracyMilliseconds, repeat: repeat)
     }
     
-    func repeatWithTimeout(timeoutSec: Double, repeat: (() -> ())) {
+    public func repeatWithTimeout(timeoutSec: Double, repeat: (() -> ())) {
         repeatInQueue(dispatch_get_main_queue(), timeoutMs: Int(timeoutSec * 1000), accuracyMs: Int(timeoutSec), repeat: repeat)
     }
     
-    func repeatWithTimeout(timeoutSec: Int, repeat: (() -> ())) {
+    public func repeatWithTimeout(timeoutSec: Int, repeat: (() -> ())) {
         repeatInQueue(dispatch_get_main_queue(), timeoutMs: timeoutSec * 1000, accuracyMs: timeoutSec, repeat: repeat)
     }
     
-    func repeatInBgWithTimeout(timeoutSec: Double, repeat: (() -> ())) {
+    public func repeatInBgWithTimeout(timeoutSec: Double, repeat: (() -> ())) {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         repeatInQueue(queue, timeoutMs: Int(timeoutSec * 1000), accuracyMs: Int(timeoutSec), repeat: repeat)
     }
     
-    func repeatInQueue(queue: dispatch_queue_t, var timeoutMs: Int, var accuracyMs: Int, repeat: (() -> ())) {
+    public func repeatInQueue(queue: dispatch_queue_t, var timeoutMs: Int, var accuracyMs: Int, repeat: (() -> ())) {
         
         stop()
         isRepeating = true
@@ -77,7 +77,7 @@ public class Repeater {
         }
     }
     
-    func stop() {
+    public func stop() {
         if let existedTimer = timer {
             dispatch_source_cancel(existedTimer);
         }
