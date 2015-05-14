@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Repeater {
+public class Repeater {
     
     var repeatTimeoutMilliseconds: Int = 1000
     var repeatAccuracyMilliseconds: Int = 1
